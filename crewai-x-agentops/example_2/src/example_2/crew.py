@@ -1,9 +1,16 @@
+from dotenv import load_dotenv
+load_dotenv()
+import os
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import PDFSearchTool
 
+import agentops
+
+agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"))
+
 pdf_search_tool = PDFSearchTool(
-  pdf='knowledge/21_Laws_of_AI_Solutions_Architecture.pdf',
+  pdf='knowledge/21_Laws.pdf',
   config=dict(
         llm=dict(
             provider="ollama", # or google, openai, anthropic, llama2, ...
