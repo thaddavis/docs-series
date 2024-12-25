@@ -1,0 +1,22 @@
+[project]
+name = "example_2"
+version = "0.1.0"
+description = "example_2 using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.86.0,<1.0.0",
+    "langchain-ollama>=0.2.2",
+    "ollama>=0.4.4",
+]
+
+[project.scripts]
+example_2 = "example_2.main:run"
+run_crew = "example_2.main:run"
+train = "example_2.main:train"
+replay = "example_2.main:replay"
+test = "example_2.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
