@@ -1,6 +1,6 @@
 research_task:
   description: >
-    Review the ebook.pdf and summarize the main topics.
+    Review the 21_Laws_of_AI_Solutions_Architecture.pdf and summarize the main topics.
   expected_output: >
     Bullet points of the most takeaways from the document.
   agent: researcher

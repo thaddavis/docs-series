@@ -10,7 +10,7 @@ import agentops
 agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"))
 
 pdf_search_tool = PDFSearchTool(
-  pdf='knowledge/21_Laws.pdf',
+  pdf='knowledge/21_Laws_of_AI_Solutions_Architecture.pdf',
   config=dict(
         llm=dict(
             provider="ollama", # or google, openai, anthropic, llama2, ...
