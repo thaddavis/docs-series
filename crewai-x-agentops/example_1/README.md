@@ -2,11 +2,11 @@
 
 Logging development steps
 
-##
+## Starting point
 
 - MacOS v14.7.1 Sonoma
 - CrewAI was designed to work with Python 3.10<=,<3.13
-  - `https://github.com/crewaiinc/crewai?tab=readme-ov-file#1-installation`
+  - https://github.com/crewaiinc/crewai?tab=readme-ov-file#1-installation
 - `brew update`
 - `brew install pyenv`
   - `https://github.com/pyenv/pyenv?tab=readme-ov-file#switch-between-python-versions`
@@ -23,7 +23,6 @@ pyenv local 3.12
 ```
 
 ## Add the following to the .zshrc (or .bashrc 😉)
-
 NOTE: ~/.zprofile (for login shells) and ~/.zshrc (for interactive shells)
 
 ```sh -  in the .zshrc

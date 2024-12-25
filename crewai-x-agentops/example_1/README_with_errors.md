@@ -2,11 +2,11 @@
 
 Logging development steps
 
-##
+## Starting point
 
--  MacOS v14.7.1 Sonoma
+- MacOS v14.7.1 Sonoma
 - CrewAI was designed to work with Python 3.10<=,<3.13
-  - `https://github.com/crewaiinc/crewai?tab=readme-ov-file#1-installation`
+  - https://github.com/crewaiinc/crewai?tab=readme-ov-file#1-installation
 - `brew update`
 - `brew install pyenv`
   - `https://github.com/pyenv/pyenv?tab=readme-ov-file#switch-between-python-versions`

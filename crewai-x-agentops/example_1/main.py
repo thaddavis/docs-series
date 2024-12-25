@@ -23,15 +23,14 @@ def markdown_validation_tool(file_path: str) -> str:
             return "Could not validate file. The provided file path does not exist."
 
         scan_result = PyMarkdownApi().scan_path(file_path.rstrip().lstrip())
-        results = str(scan_result)
-        return results  # Return the reviewed document
+        return str(scan_result) if len(scan_result.scan_failures) > 0 else "No linting errors found."
     except PyMarkdownApiException as this_exception:
         print(f"API Exception: {this_exception}", file=sys.stderr)
         return f"API Exception: {str(this_exception)}"
     
-ollama_llm=LLM(model="ollama/llama3.1", base_url="http://localhost:11434")
+ollama_llm=LLM(model="ollama/gemma2", base_url="http://localhost:11434")
 
-filename = "README.md"
+filename = "./README.md"
 
 general_agent = Agent(
     role="Requirements Manager",
@@ -41,43 +40,31 @@ general_agent = Agent(
       tasks to address the validation results. Write your 
       response as if you were handing it to a developer 
       to fix the issues.
-      DO NOT provide examples of how to fix the issues or
-      recommend other tools to use.""",
+    """,
     backstory="""
-      You are an expert business analyst 
-			and software QA specialist. You provide high quality, 
-      thorough, insightful and actionable feedback via 
-      detailed list of changes and actionable tasks.
+      You are an QA engineer. You always provide high quality, thorough, insightful and actionable feedback via 
+      an easy to read list of linting errors.
     """,
     allow_delegation=False,
     verbose=True,
     tools=[markdown_validation_tool],
     llm=ollama_llm,
+    max_execution_time=30
 )
 
 syntax_review_task = Task(
     description=f"""
-        Use the markdown_validation_tool to review 
-        the file(s) at this path: {filename}
-        
+        Use the markdown_validation_tool to lint the file at this path: {filename}        
         Be sure to pass only the file path to the markdown_validation_tool.
-        Use the following format to call the markdown_validation_tool:
-        Do I need to use a tool? Yes
-        Action: markdown_validation_tool
-        Action Input: {filename}
-
-        Get the validation results from the tool 
-        and then summarize it into a list of changes
-        the developer should make to the document.
-        DO NOT recommend ways to update the document.
-        DO NOT change any of the content of the document or
-        add content to it. It is critical to your task to
-        only respond with a list of changes.
         
-        If you already know the answer or if you do not need 
-        to use a tool, return it as your Final Answer.""",
+        Get the linting results from the markdown_validation_tool 
+        and then summarize it into a list of changes
+        that a software developer should make to the document.
+        DO NOT recommend ways to update the document.
+        Accurately report the linting errors as if your life depended on it.
+        """,
     agent=general_agent,
-    expected_output="A list of validation results and suggestions on how to fix them.",
+    expected_output="Suggestions for how to fix linting errors related to a markdown file.",
 )
 
 print("\n\nStarting the task...\n\n")
