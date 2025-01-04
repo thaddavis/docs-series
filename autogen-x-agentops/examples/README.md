@@ -39,8 +39,8 @@ uv run example-3.py
 
 ## Left off here
 
-TODO: Custom Tool example without AgentOps
-TODO: Storing message history in a database
-TODO: Reflection on code writing
+TODO: Example #4 - Custom Tool example without AgentOps
+TODO: Example #5 - Storing message history in a database
+TODO: Example #6 - Reflection on code writing
 
 
