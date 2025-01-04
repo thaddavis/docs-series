@@ -30,3 +30,17 @@ uv run example-1.py
 ```sh
 uv run example-2.py
 ```
+
+## example-3.py
+
+```sh
+uv run example-3.py
+```
+
+## Left off here
+
+TODO: Custom Tool example without AgentOps
+TODO: Storing message history in a database
+TODO: Reflection on code writing
+
+
