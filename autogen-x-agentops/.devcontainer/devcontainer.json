@@ -1,0 +1,21 @@
+{
+  "customizations":  {
+      "vscode": {
+          "extensions": [
+              "ms-python.python",
+              "ms-toolsai.jupyter",
+              "visualstudioexptteam.vscodeintellicode",
+              "GitHub.copilot"
+          ],
+          "settings": {
+              "terminal.integrated.profiles.linux": {
+                  "bash": {
+                      "path": "/bin/bash"
+                  }
+              },
+              "terminal.integrated.defaultProfile.linux": "bash"
+          }
+      }
+  },
+  "dockerFile": "./Dockerfile.dev"
+}
