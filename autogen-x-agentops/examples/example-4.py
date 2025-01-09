@@ -14,8 +14,8 @@ agentops.start_session()
 # Let's first define the assistant agent that suggests tool calls.
 assistant = ConversableAgent(
     name="Assistant",
-    system_message="You are a helpful AI assistant. "
-    "You can help with simple calculations. "
+    system_message="You are a helpful AI assistant."
+    "You can help with simple calculations."
     "Return 'TERMINATE' when the task is done.",
     llm_config={"config_list": [{"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY"]}]},
 )

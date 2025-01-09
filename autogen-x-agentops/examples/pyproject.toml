@@ -9,6 +9,8 @@ dependencies = [
     "agentops>=0.3.21",
     "flaml[automl]>=2.3.3",
     "ipython>=8.31.0",
+    "matplotlib>=3.10.0",
+    "numpy>=1.26.4",
     "python-dotenv>=1.0.1",
     "sympy>=1.13.3",
 ]
